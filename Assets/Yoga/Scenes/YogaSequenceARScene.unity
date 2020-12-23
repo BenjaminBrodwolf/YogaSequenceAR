@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76addb71743dbd439827c7416e15b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialFingersDistance: 0
+  initialFingersDistance: 1
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!4 &98676856
 Transform:
@@ -183,7 +183,7 @@ PrefabInstance:
     - target: {fileID: 726527285886412740, guid: 657313ed37665534ca96076d14a7b760,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.02
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 726527285886412743, guid: 657313ed37665534ca96076d14a7b760,
         type: 3}
