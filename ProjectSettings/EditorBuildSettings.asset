@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PlacementIndicator/YogaSequenceARScene.unity
+    path: Assets/Yoga/Scenes/YogaSequenceARScene.unity
     guid: a776f0f2b23b7ec48a536a6129f0bdfa
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: fdd59603f19f1564992f28a9a201b999,

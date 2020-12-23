@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,16 @@ using UnityEngine.UI;
 
 public class SequenceManager : MonoBehaviour
 {
-    private Animator anim;
-    public Button startButton;
 
+    private Animator anim;
+    private Button startButton;
+    
     void Start()
     {
         anim = GetComponent<Animator>();
-        Button btn = startButton.GetComponent<Button>();
+        Debug.Log(anim);
+        GameObject[] gmButton = GameObject.FindGameObjectsWithTag("StartButton");  //startButton.GetComponent<Button>();
+        Button btn = gmButton[0].GetComponent<Button>();
         btn.onClick.AddListener(StartButton);
 
     }
