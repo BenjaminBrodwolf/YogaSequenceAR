@@ -15,16 +15,28 @@ public class ObjectSpawner : MonoBehaviour
         _placementIndicator = FindObjectOfType<PlacementIndicator>();
     }
 
-    void Update()
+    // void Update()
+    // {
+    //     if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+    //     {
+    //         if (instance == null)
+    //         {
+    //             instance = Instantiate(objectToSpawn,
+    //                 _placementIndicator.transform.position,
+    //                 _placementIndicator.transform.rotation);
+    //         }
+    //     }
+    // }
+
+    public void PlaceObject()
     {
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        if (instance != null)
         {
-            if (instance == null)
-            {
-                instance = Instantiate(objectToSpawn,
-                    _placementIndicator.transform.position,
-                    _placementIndicator.transform.rotation);
-            }
+            Destroy(instance);
         }
+        
+        instance = Instantiate(objectToSpawn,
+            _placementIndicator.transform.position,
+            _placementIndicator.transform.rotation);
     }
 }
