@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2450535946968065084}
+  - component: {fileID: 3280722758099377237}
   m_Layer: 0
   m_Name: YogaFigureObject
   m_TagString: Untagged
@@ -27,11 +28,30 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2704609526752558944}
+  - {fileID: 6492857431195910765}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2450535945762789515
+--- !u!95 &3280722758099377237
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2450535946968065085}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7f1a9e2904c4fbf4c88823b298674a8c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 705858455a2bc55478c0a52f50a0ddf8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &6742445079430784390
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -42,21 +62,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
         type: 3}
@@ -113,11 +118,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: yogafigure
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 7f1a9e2904c4fbf4c88823b298674a8c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f1a9e2904c4fbf4c88823b298674a8c, type: 3}
---- !u!4 &2704609526752558944 stripped
+--- !u!4 &6492857431195910765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
-  m_PrefabInstance: {fileID: 2450535945762789515}
+  m_PrefabInstance: {fileID: 6742445079430784390}
   m_PrefabAsset: {fileID: 0}
