@@ -8,6 +8,7 @@ TagManager:
   - StartButton
   - PlaceOkButton
   - YogaFigure
+  - PlacingButton
   layers:
   - Default
   - TransparentFX
