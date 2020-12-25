@@ -7,28 +7,63 @@ using UnityEngine.UI;
 public class SequenceManager : MonoBehaviour
 {
 
-    private Animator anim;
-    private Button startButton;
+    private Animator _anim;
+    private GameObject _startButtonUI;
+    private GameObject _placeOkButtonUI;
+    private GameObject _placingButtonUI;
     
     void Start()
     {
-        anim = GetComponent<Animator>();
-        Debug.Log(anim);
-        GameObject[] gmButton = GameObject.FindGameObjectsWithTag("StartButton");  //startButton.GetComponent<Button>();
-        Button btn = gmButton[0].GetComponent<Button>();
-        btn.onClick.AddListener(StartButton);
+        _anim = GetComponent<Animator>();
+        
+        _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
 
+        _startButtonUI = FindInActiveObjectByTag("StartButton"); 
+        
+        _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton"); 
+        _placeOkButtonUI.SetActive(true);
+        _placeOkButtonUI.GetComponent<Button>().onClick.AddListener(PlatzierungOk);
     }
 
-    // Update is called once per frame
     void Update()
     {
  
     }
 
+    public void PlatzierungOk()
+    {
+        // Display the Start Button
+        _startButtonUI.SetActive(true);
+        _startButtonUI.GetComponent<Button>().onClick.AddListener(StartButton);
+        
+        //Disable Scale and Rotate Scripts
+        gameObject.GetComponent<rotateController>().enabled = false;
+        gameObject.GetComponent<onClickForScaling>().enabled = false;
+        
+        //Disable another PlacingButton
+        _placeOkButtonUI.SetActive(false);
+        _placingButtonUI.SetActive(false);
+    }
     public void StartButton()
     {
         Debug.Log("Start Button pressed");
-        anim.SetBool("isStartYogaSequence", true);
+        _anim.SetBool("isStartYogaSequence", true);
+    }
+    
+    GameObject FindInActiveObjectByTag(string tag)
+    {
+
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].CompareTag(tag))
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 }
