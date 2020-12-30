@@ -9,6 +9,8 @@ TagManager:
   - PlaceOkButton
   - YogaFigure
   - PlacingButton
+  - BackButton
+  - NextButton
   layers:
   - Default
   - TransparentFX
