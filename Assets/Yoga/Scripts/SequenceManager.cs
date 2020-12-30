@@ -9,6 +9,7 @@ public class SequenceManager : MonoBehaviour
 
     private Animator _anim;
     private GameObject _startButtonUI;
+    private GameObject _hintButtonUI;
     private GameObject _placeOkButtonUI;
     private GameObject _placingButtonUI;
     
@@ -19,6 +20,8 @@ public class SequenceManager : MonoBehaviour
         _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
 
         _startButtonUI = FindInActiveObjectByTag("StartButton"); 
+        
+        _hintButtonUI = FindInActiveObjectByTag("HintButton"); 
         
         _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton"); 
         _placeOkButtonUI.SetActive(true);
@@ -36,6 +39,10 @@ public class SequenceManager : MonoBehaviour
         _startButtonUI.SetActive(true);
         _startButtonUI.GetComponent<Button>().onClick.AddListener(StartButton);
         
+        // Display the Hint Button
+        _hintButtonUI.SetActive(true);
+        _hintButtonUI.GetComponent<Button>().onClick.AddListener(HintButton);
+        
         //Disable Scale and Rotate Scripts
         gameObject.GetComponent<rotateController>().enabled = false;
         gameObject.GetComponent<onClickForScaling>().enabled = false;
@@ -48,6 +55,12 @@ public class SequenceManager : MonoBehaviour
     {
         Debug.Log("Start Button pressed");
         _anim.SetBool("isStartYogaSequence", true);
+        _hintButtonUI.SetActive(true);
+    }
+    
+    public void HintButton()
+    {
+        Debug.Log("Show Hint");
     }
     
     GameObject FindInActiveObjectByTag(string tag)

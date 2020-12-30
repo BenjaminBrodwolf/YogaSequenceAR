@@ -9,6 +9,7 @@ TagManager:
   - PlaceOkButton
   - YogaFigure
   - PlacingButton
+  - HintButton
   layers:
   - Default
   - TransparentFX
