@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SequenceManager : MonoBehaviour
 {
     private Animator _anim;
+    private GameObject _hintButtonUI;
     private GameObject _placeOkButtonUI;
     private GameObject _placingButtonUI;
     private GameObject _nextButtonUI;
@@ -15,7 +16,6 @@ public class SequenceManager : MonoBehaviour
 
     private bool wasForward;
     public string poseName;
-    public bool isAnimationPlaying;
     private int countSequence;
 
     void Start()
@@ -29,7 +29,10 @@ public class SequenceManager : MonoBehaviour
         _poseNameUI = GameObject.FindGameObjectsWithTag("PoseText")[0];
         Debug.Log(_poseNameUI);
         _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
-
+        
+        _hintButtonUI = FindInActiveObjectByTag("HintButton"); 
+        
+        _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton"); 
         _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton");
         _placeOkButtonUI.SetActive(true);
         _placeOkButtonUI.GetComponent<Button>().onClick.AddListener(PlatzierungOk);
@@ -79,7 +82,11 @@ public class SequenceManager : MonoBehaviour
         // Display the Next Button
         _nextButtonUI.SetActive(true);
         _backButtonUI.SetActive(true);
-
+        
+        // Display the Hint Button
+        _hintButtonUI.SetActive(true);
+        _hintButtonUI.GetComponent<Button>().onClick.AddListener(HintButton);
+        
         //Disable Scale and Rotate Scripts
         gameObject.GetComponent<rotateController>().enabled = false;
         gameObject.GetComponent<onClickForScaling>().enabled = false;
@@ -88,6 +95,7 @@ public class SequenceManager : MonoBehaviour
         _placeOkButtonUI.SetActive(false);
         _placingButtonUI.SetActive(false);
         
+        _hintButtonUI.SetActive(true);
     }
 
 
@@ -112,7 +120,11 @@ public class SequenceManager : MonoBehaviour
         return _anim.GetCurrentAnimatorStateInfo(0).length >
                _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
-
+    
+    public void HintButton()
+    {
+        Debug.Log("Show Hint");
+    }
 
     public string GetCurrentClipName()
     {
@@ -122,6 +134,7 @@ public class SequenceManager : MonoBehaviour
 
     GameObject FindInActiveObjectByTag(string tag)
     {
+
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
         for (int i = 0; i < objs.Length; i++)
         {
