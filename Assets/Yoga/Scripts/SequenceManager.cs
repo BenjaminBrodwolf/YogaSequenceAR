@@ -44,10 +44,8 @@ public class SequenceManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GetCurrentClipName());
-        Debug.Log(AnimatorIsPlaying());
-
-        
+        // Debug.Log(GetCurrentClipName());
+        // Debug.Log(AnimatorIsPlaying());
         
         string currentClipName = GetCurrentClipName();
         string[] poses = currentClipName.Split('-');
@@ -73,7 +71,6 @@ public class SequenceManager : MonoBehaviour
                 poseName = poses[0];
             }
         }
-        Debug.Log(poseName);
         _poseNameUI.GetComponent<Text>().text = poseName;
     }
 
