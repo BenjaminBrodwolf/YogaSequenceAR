@@ -11,6 +11,7 @@ TagManager:
   - PlacingButton
   - BackButton
   - NextButton
+  - PoseText
   layers:
   - Default
   - TransparentFX
