@@ -52,11 +52,12 @@ public class SequenceManager : MonoBehaviour
         
         string currentClipName = GetCurrentClipName();
         string[] poses = currentClipName.Split('-');
+        Debug.Log(poses);
         if (AnimatorIsPlaying())
         {
             if (poses.Length > 1)
             {
-                poseName = wasForward ? poses[1] + " -> " + poses[0] : poses[0] + " <- " + poses[1] ;
+                poseName = wasForward ? poses[0] + " -> " + poses[1] : poses[1] + " -> " + poses[0] ;
             }
             else
             {
@@ -67,7 +68,7 @@ public class SequenceManager : MonoBehaviour
         {
             if (poses.Length > 1)
             {
-                poseName = wasForward ? poses[1] : poses[2];
+                poseName = wasForward ? poses[1] : poses[0];
             }
             else
             {
