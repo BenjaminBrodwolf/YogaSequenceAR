@@ -18,6 +18,7 @@ TagManager:
   - HandLinks
   - UiObjectForBodyPart
   - HintLine
+  - SayAgainButton
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,8 @@ public class SequenceManager : MonoBehaviour
     private GameObject _nextButtonUI;
     private GameObject _backButtonUI;
     private GameObject _poseNameUI;
+    private GameObject _sayAgainButtonUI;
+    private bool isAllowedPlaySoundPoseName;
 
     private GameObject _kopf;
     private GameObject _handRecht;
@@ -24,17 +26,21 @@ public class SequenceManager : MonoBehaviour
     private GameObject _hintPanel;
     private GameObject _hintLine;
     private Text _uiObjectForBodyPart;
-    private GameObject currentBodyHintFocus;
+    private GameObject _currentBodyHintFocus;
 
     private string lastAnimationEventName;
-    
+
     private bool wasForward;
     private string poseName;
     private int countSequence;
 
+    private AudioSource _audioSource;
+    private AudioClip _currenYogaPoseSound;
+    private string _currenAdjustText;
     public YogaAdjustment[] yogaAdjustments;
 
-    private Hashtable poseDictionary = new Hashtable(){
+    private Hashtable poseDictionary = new Hashtable()
+    {
         {"Berg", "Bergposition (Tadasana)"},
         {"KopfKnie", "Kopf Knie Position (Uttanasana)"},
         {"Vorbeuge", "Halbe Vorbeuge (Ardha Uttanasana)"},
@@ -42,7 +48,7 @@ public class SequenceManager : MonoBehaviour
         {"Liegend", "Liegend"},
         {"Kobra", "Kobra (Bhujangasana)"}
     };
-    
+
     void Start()
     {
         poseName = "Stehen";
@@ -50,53 +56,62 @@ public class SequenceManager : MonoBehaviour
         countSequence = 0;
 
         _anim = GetComponent<Animator>();
-        
+        _audioSource = GetComponent<AudioSource>();
+        _currenYogaPoseSound = _audioSource.clip;
+
         _poseNameUI = GameObject.FindGameObjectsWithTag("PoseText")[0];
         _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
-        
-        
-        _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton"); 
+
+
+        _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton");
         _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton");
         _placeOkButtonUI.SetActive(true);
-        _placeOkButtonUI.GetComponent<Button>().onClick.AddListener(PlatzierungOk);
+        _placeOkButtonUI.GetComponent<Button>().onClick.AddListener(PlatzierungOkBtn);
 
         _nextButtonUI = FindInActiveObjectByTag("NextButton");
-        _nextButtonUI.GetComponent<Button>().onClick.AddListener(NextYogaSequence);
+        _nextButtonUI.GetComponent<Button>().onClick.AddListener(NextYogaSequenceBtn);
 
         _backButtonUI = FindInActiveObjectByTag("BackButton");
-        _backButtonUI.GetComponent<Button>().onClick.AddListener(BackYogaSequence);
-        
-        
+        _backButtonUI.GetComponent<Button>().onClick.AddListener(BackYogaSequenceBtn);
+
+        _sayAgainButtonUI = FindInActiveObjectByTag("SayAgainButton");
+        _sayAgainButtonUI.GetComponent<Button>().onClick.AddListener(PlayAgainSoundBtn);
+        isAllowedPlaySoundPoseName = false;
+
+
         // hint 
         isHintActive = false;
         _hintButtonUI = FindInActiveObjectByTag("HintButton");
         _hintPanel = FindInActiveObjectByTag("TextHint");
         _hintLine = FindInActiveObjectByTag("HintLine");
         _uiObjectForBodyPart = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart")[0].GetComponent<Text>();
-        
+
         // body parts
         _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
-        currentBodyHintFocus = _kopf; // default for debug
-
+        _currentBodyHintFocus = _kopf; // default for debug
     }
 
     void Update()
     {
         // Debug.Log(GetCurrentClipName());
         // Debug.Log(AnimatorIsPlaying());
-        
+
         string currentClipName = GetCurrentClipName();
         string[] poses = currentClipName.Split('-');
         if (AnimatorIsPlaying())
         {
             if (poses.Length > 1)
             {
-                poseName = wasForward ? poseDictionary[poses[0]] + " -> " + poseDictionary[poses[1]] : poseDictionary[poses[1]] + " -> " + poseDictionary[poses[0]] ;
+                poseName = wasForward
+                    ? poseDictionary[poses[0]] + " -> " + poseDictionary[poses[1]]
+                    : poseDictionary[poses[1]] + " -> " + poseDictionary[poses[0]];
             }
             else
             {
                 poseName = poseDictionary[poses[0]].ToString();
             }
+
+            isAllowedPlaySoundPoseName = true;
         }
         else
         {
@@ -108,7 +123,9 @@ public class SequenceManager : MonoBehaviour
             {
                 poseName = poseDictionary[poses[0]].ToString();
             }
-        }
+
+            SetCurrentYogaSequenceData();        }
+
         SetPoseName(poseName);
 
         if (isHintActive)
@@ -122,29 +139,28 @@ public class SequenceManager : MonoBehaviour
         _poseNameUI.GetComponent<Text>().text = pose;
     }
 
-    public void PlatzierungOk()
+    public void PlatzierungOkBtn()
     {
-        // Display the Next Button
+        // Display the Buttons
         _nextButtonUI.SetActive(true);
         _backButtonUI.SetActive(true);
-        
-        // Display the Hint Button
+        _hintButtonUI.SetActive(true);
+        _sayAgainButtonUI.SetActive(true);
+
         _hintButtonUI.SetActive(true);
         _hintButtonUI.GetComponent<Button>().onClick.AddListener(HintButton);
-        
+
         //Disable Scale and Rotate Scripts
         gameObject.GetComponent<rotateController>().enabled = false;
         gameObject.GetComponent<onClickForScaling>().enabled = false;
 
-        //Disable another PlacingButton
+        //Disable PlacingButtons
         _placeOkButtonUI.SetActive(false);
         _placingButtonUI.SetActive(false);
-        
-        _hintButtonUI.SetActive(true);
     }
 
 
-    public void NextYogaSequence()
+    public void NextYogaSequenceBtn()
     {
         Debug.Log("Next Sequence Button pressed");
         _anim.SetTrigger("nextYogaSequenceTrigger");
@@ -152,7 +168,7 @@ public class SequenceManager : MonoBehaviour
         countSequence++;
     }
 
-    public void BackYogaSequence()
+    public void BackYogaSequenceBtn()
     {
         Debug.Log("Back Sequence Button pressed");
         _anim.SetTrigger("backYogaSequenceTrigger");
@@ -160,19 +176,20 @@ public class SequenceManager : MonoBehaviour
         countSequence--;
     }
 
-    private bool AnimatorIsPlaying()
+    public void PlayAgainSoundBtn()
     {
-        return _anim.GetCurrentAnimatorStateInfo(0).length >
-               _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        isAllowedPlaySoundPoseName = true;
     }
-    
+
+ 
+
     public void HintButton()
     {
         Debug.Log("Show Hint");
         isHintActive = !_hintPanel.gameObject.active;
 
         if (isHintActive)
-        {     
+        {
             _hintPanel.SetActive(true);
             _hintLine.SetActive(true);
             setHintText();
@@ -183,6 +200,7 @@ public class SequenceManager : MonoBehaviour
             _hintLine.SetActive(false);
         }
     }
+
     public void YogaPoseEvent(AnimationEvent poseEvent)
     {
         Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
@@ -194,49 +212,62 @@ public class SequenceManager : MonoBehaviour
     {
         if (_hintPanel.active)
         {
+            // SetCurrentYogaSequenceData();
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-            textElement.text = getAdjustmentText();
+            textElement.text = _currenAdjustText;
         }
     }
-    
-    public string getAdjustmentText()
+
+    private void PlaySoundPoseName()
     {
-        string adjustText = "";
-        
+        if (isAllowedPlaySoundPoseName && !_audioSource.isPlaying)
+        {
+            _audioSource.PlayOneShot(_currenYogaPoseSound);
+            isAllowedPlaySoundPoseName = false;
+        }
+    }
+    public void SetCurrentYogaSequenceData()
+    {
         //currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
         var poseNameExist = yogaAdjustments.Any(e => e.YogaPose.Equals(lastAnimationEventName));
         Debug.Log("Pose vorhanden " + poseNameExist);
         if (poseNameExist)
         {
             var y = yogaAdjustments.First(e => e.YogaPose.Equals(lastAnimationEventName));
-            adjustText = y.AdjustmentText;
-            currentBodyHintFocus = y.BodyHintFocus;
+            _currenAdjustText = y.AdjustmentText;
+            _currentBodyHintFocus = y.BodyHintFocus;
+            _currenYogaPoseSound = y.YogaPoseSound;
+            // AudioSource.PlayClipAtPoint(y.YogaPoseSound, Camera.main.transform.position);
+            // _audioSource.Play();
+            PlaySoundPoseName();
         }
         else
         {
             Debug.LogError("Pose nicht vorhanden");
-            adjustText = "Keine Infos vorhanden";
-            currentBodyHintFocus = _kopf;
+            _currenAdjustText = "Keine Infos vorhanden";
+            _currentBodyHintFocus = _kopf;
         }
-       
-        return adjustText;
     }
-    
+    private bool AnimatorIsPlaying()
+    {
+        return _anim.GetCurrentAnimatorStateInfo(0).length >
+               _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    }
     void OnGUI()
     {
         //Output the current Animation name and length to the screen
-        GUI.Label(new Rect(0, 0, 200, 20),  "Event PoseName : " + lastAnimationEventName);
-        GUI.Label(new Rect(0, 20, 200, 20),  "Sequence Number : " + countSequence);
-        // GUI.Label(new Rect(0, 40, 200, 20),  "Clip Length : " + currentClip.length);
+        GUI.Label(new Rect(0, 0, 200, 20), "Event PoseName : " + lastAnimationEventName);
+        GUI.Label(new Rect(0, 30, 200, 20), "Sequence Number : " + countSequence);
+        GUI.Label(new Rect(0, 15, 200, 20),  "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 
     private void setHintPos()
     {
-        Vector3 worldPos = Camera.main.WorldToScreenPoint(currentBodyHintFocus.transform.position);
+        Vector3 worldPos = Camera.main.WorldToScreenPoint(_currentBodyHintFocus.transform.position);
         _uiObjectForBodyPart.transform.position = worldPos;
         _uiObjectForBodyPart.text = _kopf.name;
     }
-    
+
 
     public string GetCurrentClipName()
     {
@@ -246,7 +277,6 @@ public class SequenceManager : MonoBehaviour
 
     GameObject FindInActiveObjectByTag(string tag)
     {
-
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
         for (int i = 0; i < objs.Length; i++)
         {
@@ -261,6 +291,4 @@ public class SequenceManager : MonoBehaviour
 
         return null;
     }
-    
-
 }

@@ -802,12 +802,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698070660280397529}
-  - component: {fileID: 1869388936570034007}
   - component: {fileID: 442449325361059550}
+  - component: {fileID: 1869388936570034007}
   - component: {fileID: -3998985342561460644}
   - component: {fileID: 6474116822259408705}
   - component: {fileID: 3600798482044888366}
   - component: {fileID: 4107177613939600936}
+  - component: {fileID: -1130888681272204680}
   m_Layer: 0
   m_Name: YogaFigureObject
   m_TagString: YogaFigure
@@ -831,6 +832,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442449325361059550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315951820464798061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f87b50e7d45ad4e8ae56c0d92c0d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yogaAdjustments:
+  - YogaPose: Berg
+    BodyHintFocus: {fileID: 1081806365186235233}
+    YogaPoseSound: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
+    AdjustmentText: Kopf gerade und schulter nach hinten
+  - YogaPose: KopfKnie
+    BodyHintFocus: {fileID: 7462777454675366643}
+    YogaPoseSound: {fileID: 8300000, guid: 2e0146233655ad24f8be1c52bbc78c59, type: 3}
+    AdjustmentText: Beine leicht angewinkelt
+  - YogaPose: Brett
+    BodyHintFocus: {fileID: 7705894835473530896}
+    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
+    AdjustmentText: "Elbogen \xFCber der H\xE4nde"
+  - YogaPose: Vorbeuge
+    BodyHintFocus: {fileID: 2028379114252647160}
+    YogaPoseSound: {fileID: 8300000, guid: 2e0146233655ad24f8be1c52bbc78c59, type: 3}
+    AdjustmentText: "R\xFCcken gerade"
+  - YogaPose: Liegend
+    BodyHintFocus: {fileID: 8029269409123342696}
+    YogaPoseSound: {fileID: 0}
+    AdjustmentText: "F\xFCsse flach auf dem Boden  (kein Audio)"
+  - YogaPose: Kobra
+    BodyHintFocus: {fileID: 5428428918367607532}
+    YogaPoseSound: {fileID: 8300000, guid: 263379bf2cd0e7d4c8a28d45d7a7b736, type: 3}
+    AdjustmentText: Schultern  nach hinten
 --- !u!95 &1869388936570034007
 Animator:
   serializedVersion: 3
@@ -850,28 +888,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &442449325361059550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315951820464798061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f87b50e7d45ad4e8ae56c0d92c0d5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yogaAdjustments:
-  - YogaPose: Berg
-    BodyHintFocus: {fileID: 1081806365186235233}
-    AdjustmentText: Kopf gerade und schulter nach hinten
-  - YogaPose: KopfKnie
-    BodyHintFocus: {fileID: 7462777454675366643}
-    AdjustmentText: Beine leicht angewinkelt
-  - YogaPose: Brett
-    BodyHintFocus: {fileID: 2028379114252647160}
-    AdjustmentText: "R\xFCcken gerade"
 --- !u!23 &-3998985342561460644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -950,6 +966,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f67b501381ae14fa93496aac4bda82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &-1130888681272204680
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315951820464798061}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1.73
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.21944444
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2459737776488536332
 GameObject:
   m_ObjectHideFlags: 0
