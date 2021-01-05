@@ -26,7 +26,6 @@ public class SequenceManager : MonoBehaviour
     private Text _uiObjectForBodyPart;
     private GameObject currentBodyHintFocus;
 
-    private AnimationClip currentClip;
     private string lastAnimationEventName;
     
     private bool wasForward;
@@ -67,8 +66,6 @@ public class SequenceManager : MonoBehaviour
         _backButtonUI = FindInActiveObjectByTag("BackButton");
         _backButtonUI.GetComponent<Button>().onClick.AddListener(BackYogaSequence);
         
-        currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
- 
         
         // hint 
         isHintActive = false;
@@ -178,10 +175,7 @@ public class SequenceManager : MonoBehaviour
         {     
             _hintPanel.SetActive(true);
             _hintLine.SetActive(true);
-
-            Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-            textElement.text = getAdjustmentText();
-            
+            setHintText();
         }
         else
         {
@@ -193,6 +187,11 @@ public class SequenceManager : MonoBehaviour
     {
         Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
         lastAnimationEventName = poseEvent.stringParameter;
+        setHintText();
+    }
+
+    private void setHintText()
+    {
         if (_hintPanel.active)
         {
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
@@ -227,8 +226,8 @@ public class SequenceManager : MonoBehaviour
     {
         //Output the current Animation name and length to the screen
         GUI.Label(new Rect(0, 0, 200, 20),  "Event PoseName : " + lastAnimationEventName);
-        GUI.Label(new Rect(0, 20, 200, 20),  "Clip Name : " + currentClip.name);
-        GUI.Label(new Rect(0, 40, 200, 20),  "Clip Length : " + currentClip.length);
+        GUI.Label(new Rect(0, 20, 200, 20),  "Sequence Number : " + countSequence);
+        // GUI.Label(new Rect(0, 40, 200, 20),  "Clip Length : " + currentClip.length);
     }
 
     private void setHintPos()
