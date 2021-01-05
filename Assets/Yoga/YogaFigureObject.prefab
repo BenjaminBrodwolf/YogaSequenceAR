@@ -863,16 +863,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yogaAdjustments:
-  - YogaPose: {fileID: -3100369314251171874, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-      type: 3}
+  - YogaPose: Berg
     BodyHintFocus: {fileID: 1081806365186235233}
     AdjustmentText: Kopf gerade und schulter nach hinten
-  - YogaPose: {fileID: -4165962416927063200, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-      type: 3}
+  - YogaPose: KopfKnie
     BodyHintFocus: {fileID: 7462777454675366643}
     AdjustmentText: Beine leicht angewinkelt
-  - YogaPose: {fileID: -5218712397095274335, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
-      type: 3}
+  - YogaPose: Brett
     BodyHintFocus: {fileID: 2028379114252647160}
     AdjustmentText: "R\xFCcken gerade"
 --- !u!23 &-3998985342561460644

@@ -27,6 +27,7 @@ public class SequenceManager : MonoBehaviour
     private GameObject currentBodyHintFocus;
 
     private AnimationClip currentClip;
+    private string lastAnimationEventName;
     
     private bool wasForward;
     private string poseName;
@@ -52,7 +53,6 @@ public class SequenceManager : MonoBehaviour
         _anim = GetComponent<Animator>();
         
         _poseNameUI = GameObject.FindGameObjectsWithTag("PoseText")[0];
-        Debug.Log(_poseNameUI);
         _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
         
         
@@ -112,12 +112,17 @@ public class SequenceManager : MonoBehaviour
                 poseName = poseDictionary[poses[0]].ToString();
             }
         }
-        _poseNameUI.GetComponent<Text>().text = poseName;
+        SetPoseName(poseName);
 
         if (isHintActive)
         {
             setHintPos();
         }
+    }
+
+    private void SetPoseName(string pose)
+    {
+        _poseNameUI.GetComponent<Text>().text = pose;
     }
 
     public void PlatzierungOk()
@@ -175,8 +180,7 @@ public class SequenceManager : MonoBehaviour
             _hintLine.SetActive(true);
 
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-            
-            textElement.text = getAdjustmentText();;
+            textElement.text = getAdjustmentText();
             
         }
         else
@@ -185,24 +189,33 @@ public class SequenceManager : MonoBehaviour
             _hintLine.SetActive(false);
         }
     }
+    public void YogaPoseEvent(AnimationEvent poseEvent)
+    {
+        Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
+        lastAnimationEventName = poseEvent.stringParameter;
+        if (_hintPanel.active)
+        {
+            Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+            textElement.text = getAdjustmentText();
+        }
+    }
     
     public string getAdjustmentText()
     {
-
         string adjustText = "";
         
-        currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
-        var existClip = yogaAdjustments.Any(e => e.YogaPose == currentClip);
-        Debug.Log("Clip vorhande " + existClip.ToString());
-        if (existClip)
+        //currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
+        var poseNameExist = yogaAdjustments.Any(e => e.YogaPose.Equals(lastAnimationEventName));
+        Debug.Log("Pose vorhanden " + poseNameExist);
+        if (poseNameExist)
         {
-            var y = yogaAdjustments.First(e => e.YogaPose == currentClip);
+            var y = yogaAdjustments.First(e => e.YogaPose.Equals(lastAnimationEventName));
             adjustText = y.AdjustmentText;
             currentBodyHintFocus = y.BodyHintFocus;
         }
         else
         {
-            Debug.LogError("Clip nicht vorhande");
+            Debug.LogError("Pose nicht vorhanden");
             adjustText = "Keine Infos vorhanden";
             currentBodyHintFocus = _kopf;
         }
@@ -213,8 +226,9 @@ public class SequenceManager : MonoBehaviour
     void OnGUI()
     {
         //Output the current Animation name and length to the screen
-        GUI.Label(new Rect(0, 0, 200, 20),  "Clip Name : " + currentClip.name);
-        GUI.Label(new Rect(0, 30, 200, 20),  "Clip Length : " + currentClip.length);
+        GUI.Label(new Rect(0, 0, 200, 20),  "Event PoseName : " + lastAnimationEventName);
+        GUI.Label(new Rect(0, 20, 200, 20),  "Clip Name : " + currentClip.name);
+        GUI.Label(new Rect(0, 40, 200, 20),  "Clip Length : " + currentClip.length);
     }
 
     private void setHintPos()
