@@ -234,7 +234,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stand-Vorbeuge
+  m_Name: Berg-Kopfknie
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -249,7 +249,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2151808049724932949, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: -4165962416927063200, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -411,7 +411,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Gerader\xFCcken-Brett 0"
+  m_Name: Vorbeuge-Brett back
   m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
@@ -426,7 +426,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8795497258042084799, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: 2912944185258149490, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -573,13 +573,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: backYogaSequenceTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: YogaSequences
@@ -701,7 +701,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Vorbeuge-Gerader\xFCcken 0"
+  m_Name: KopfKnie-Vorbeuge back
   m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
@@ -716,7 +716,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7206655340376537577, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: -3893557288710708268, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -808,7 +808,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Vorbeuge-Gerader\xFCcken"
+  m_Name: KopfKnie-Vorbeuge
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -823,7 +823,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7206655340376537577, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: -3893557288710708268, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -938,7 +938,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -6836497501966060063}
-    m_Position: {x: 160, y: 340, z: 0}
+    m_Position: {x: 140, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3074723492533690439}
     m_Position: {x: 160, y: 440, z: 0}
@@ -968,7 +968,7 @@ AnimatorStateMachine:
     m_Position: {x: 460, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4405489937142010804}
-    m_Position: {x: 460, y: 530, z: 0}
+    m_Position: {x: 470, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 672465914531420271}
     m_Position: {x: 460, y: 620, z: 0}
@@ -992,7 +992,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stand-Vorbeuge 2
+  m_Name: Berg-Kopfknie back
   m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
@@ -1006,7 +1006,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2151808049724932949, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: -4165962416927063200, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1045,7 +1045,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Gerader\xFCcken-Brett"
+  m_Name: Vorbeuge-Brett
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1060,7 +1060,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8795497258042084799, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
+  m_Motion: {fileID: 2912944185258149490, guid: 7f1a9e2904c4fbf4c88823b298674a8c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
