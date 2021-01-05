@@ -167,6 +167,10 @@ public class SequenceManager : MonoBehaviour
         {     
             _hintPanel.SetActive(true);
             _hintLine.SetActive(true);
+
+            Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+            textElement.text = poseName;
+
         }
         else
         {
