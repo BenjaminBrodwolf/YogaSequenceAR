@@ -52,7 +52,6 @@ public class SequenceManager : MonoBehaviour
         
         string currentClipName = GetCurrentClipName();
         string[] poses = currentClipName.Split('-');
-        Debug.Log(poses);
         if (AnimatorIsPlaying())
         {
             if (poses.Length > 1)
@@ -150,4 +149,6 @@ public class SequenceManager : MonoBehaviour
 
         return null;
     }
+    
+
 }

@@ -13,6 +13,9 @@ TagManager:
   - BackButton
   - NextButton
   - PoseText
+  - TextHint
+  - Kopf
+  - HandLinks
   layers:
   - Default
   - TransparentFX
