@@ -14,6 +14,17 @@ public class SequenceManager : MonoBehaviour
     private GameObject _backButtonUI;
     private GameObject _poseNameUI;
 
+    private GameObject _kopf;
+    private GameObject _handRecht;
+    private GameObject _handLinks;
+    private GameObject _schulterRechts;
+
+    private bool isHintActive;
+    private GameObject _hintPanel;
+    private GameObject _hintLine;
+    private Text _uiObjectForBodyPart;
+    private GameObject currentBodyHintFocus;
+    
     private bool wasForward;
     public string poseName;
     private int countSequence;
@@ -30,7 +41,6 @@ public class SequenceManager : MonoBehaviour
         Debug.Log(_poseNameUI);
         _placingButtonUI = GameObject.FindGameObjectsWithTag("PlacingButton")[0];
         
-        _hintButtonUI = FindInActiveObjectByTag("HintButton"); 
         
         _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton"); 
         _placeOkButtonUI = FindInActiveObjectByTag("PlaceOkButton");
@@ -43,6 +53,19 @@ public class SequenceManager : MonoBehaviour
         _backButtonUI = FindInActiveObjectByTag("BackButton");
         _backButtonUI.GetComponent<Button>().onClick.AddListener(BackYogaSequence);
         
+        
+        // hint 
+        isHintActive = false;
+        _hintButtonUI = FindInActiveObjectByTag("HintButton");
+        _hintPanel = FindInActiveObjectByTag("TextHint");
+        _hintLine = FindInActiveObjectByTag("HintLine");
+        _uiObjectForBodyPart = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart")[0].GetComponent<Text>();
+        
+        // body parts
+        _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
+        _handLinks = GameObject.FindGameObjectsWithTag("HandLinks")[0];
+        currentBodyHintFocus = _kopf; // default for debug
+
     }
 
     void Update()
@@ -75,6 +98,11 @@ public class SequenceManager : MonoBehaviour
             }
         }
         _poseNameUI.GetComponent<Text>().text = poseName;
+
+        if (isHintActive)
+        {
+            setHintPos();
+        }
     }
 
     public void PlatzierungOk()
@@ -124,7 +152,27 @@ public class SequenceManager : MonoBehaviour
     public void HintButton()
     {
         Debug.Log("Show Hint");
+        isHintActive = !_hintPanel.gameObject.active;
+
+        if (isHintActive)
+        {     
+            _hintPanel.SetActive(true);
+            _hintLine.SetActive(true);
+        }
+        else
+        {
+            _hintPanel.SetActive(false);
+            _hintLine.SetActive(false);
+        }
     }
+
+    private void setHintPos()
+    {
+        Vector3 worldPos = Camera.main.WorldToScreenPoint(currentBodyHintFocus.transform.position);
+        _uiObjectForBodyPart.transform.position = worldPos;
+        _uiObjectForBodyPart.text = _kopf.name;
+    }
+    
 
     public string GetCurrentClipName()
     {
