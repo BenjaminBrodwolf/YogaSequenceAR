@@ -10,7 +10,7 @@ ModelImporter:
     second: Vorbeuge-Geradebeugen
   - first:
       74: -2151808049724932949
-    second: Stand-Vorbeuge
+    second: Berg-Vorbeuge
   - first:
       74: 7206655340376537577
     second: "Vorbeuge-Gerader\xFCcken"
@@ -25,7 +25,16 @@ ModelImporter:
     second: Liegend-Kobra
   - first:
       74: -3100369314251171874
-    second: Idle
+    second: Berg
+  - first:
+      74: -4165962416927063200
+    second: Berg-KopfKnie
+  - first:
+      74: -3893557288710708268
+    second: KopfKnie-Vorbeuge
+  - first:
+      74: 2912944185258149490
+    second: Vorbeuge-Brett
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -60,7 +69,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Stand-Vorbeuge
+      name: Berg-KopfKnie
       takeName: Scene
       internalID: 0
       firstFrame: 1
@@ -89,7 +98,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: "Vorbeuge-Gerader\xFCcken"
+      name: KopfKnie-Vorbeuge
       takeName: Scene
       internalID: 0
       firstFrame: 50
@@ -118,7 +127,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: "Gerader\xFCcken-Brett"
+      name: Vorbeuge-Brett
       takeName: Scene
       internalID: 0
       firstFrame: 100
@@ -205,15 +214,15 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Idle
+      name: Berg
       takeName: Scene
       internalID: 0
       firstFrame: 1
-      lastFrame: 8.17
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 1.08
+      cycleOffset: 1.5
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1

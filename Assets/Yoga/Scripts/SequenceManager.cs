@@ -29,6 +29,15 @@ public class SequenceManager : MonoBehaviour
     public string poseName;
     private int countSequence;
 
+    private Hashtable poseDictionary = new Hashtable(){
+        {"Berg", "Bergposition (Tadasana)"},
+        {"KopfKnie", "Kopf Knie Position (Uttanasana)"},
+        {"Vorbeuge", "Halbe Vorbeuge (Ardha Uttanasana)"},
+        {"Brett", "Tiefes Brett (Chaturanga)"},
+        {"Liegend", "Liegend"},
+        {"Kobra", "Kobra (Bhujangasana)"}
+    };
+    
     void Start()
     {
         poseName = "Stehen";
@@ -79,22 +88,22 @@ public class SequenceManager : MonoBehaviour
         {
             if (poses.Length > 1)
             {
-                poseName = wasForward ? poses[0] + " -> " + poses[1] : poses[1] + " -> " + poses[0] ;
+                poseName = wasForward ? poseDictionary[poses[0]] + " -> " + poseDictionary[poses[1]] : poseDictionary[poses[1]] + " -> " + poseDictionary[poses[0]] ;
             }
             else
             {
-                poseName = poses[0];
+                poseName = poseDictionary[poses[0]].ToString();
             }
         }
         else
         {
             if (poses.Length > 1)
             {
-                poseName = wasForward ? poses[1] : poses[0];
+                poseName = wasForward ? poseDictionary[poses[1]].ToString() : poseDictionary[poses[0]].ToString();
             }
             else
             {
-                poseName = poses[0];
+                poseName = poseDictionary[poses[0]].ToString();
             }
         }
         _poseNameUI.GetComponent<Text>().text = poseName;
