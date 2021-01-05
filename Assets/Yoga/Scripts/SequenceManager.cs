@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,10 +25,14 @@ public class SequenceManager : MonoBehaviour
     private GameObject _hintLine;
     private Text _uiObjectForBodyPart;
     private GameObject currentBodyHintFocus;
+
+    private AnimationClip currentClip;
     
     private bool wasForward;
-    public string poseName;
+    private string poseName;
     private int countSequence;
+
+    public YogaAdjustment[] yogaAdjustments;
 
     private Hashtable poseDictionary = new Hashtable(){
         {"Berg", "Bergposition (Tadasana)"},
@@ -62,6 +67,8 @@ public class SequenceManager : MonoBehaviour
         _backButtonUI = FindInActiveObjectByTag("BackButton");
         _backButtonUI.GetComponent<Button>().onClick.AddListener(BackYogaSequence);
         
+        currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
+ 
         
         // hint 
         isHintActive = false;
@@ -72,7 +79,6 @@ public class SequenceManager : MonoBehaviour
         
         // body parts
         _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
-        _handLinks = GameObject.FindGameObjectsWithTag("HandLinks")[0];
         currentBodyHintFocus = _kopf; // default for debug
 
     }
@@ -169,14 +175,46 @@ public class SequenceManager : MonoBehaviour
             _hintLine.SetActive(true);
 
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-            textElement.text = poseName;
-
+            
+            textElement.text = getAdjustmentText();;
+            
         }
         else
         {
             _hintPanel.SetActive(false);
             _hintLine.SetActive(false);
         }
+    }
+    
+    public string getAdjustmentText()
+    {
+
+        string adjustText = "";
+        
+        currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
+        var existClip = yogaAdjustments.Any(e => e.YogaPose == currentClip);
+        Debug.Log("Clip vorhande " + existClip.ToString());
+        if (existClip)
+        {
+            var y = yogaAdjustments.First(e => e.YogaPose == currentClip);
+            adjustText = y.AdjustmentText;
+            currentBodyHintFocus = y.BodyHintFocus;
+        }
+        else
+        {
+            Debug.LogError("Clip nicht vorhande");
+            adjustText = "Keine Infos vorhanden";
+            currentBodyHintFocus = _kopf;
+        }
+       
+        return adjustText;
+    }
+    
+    void OnGUI()
+    {
+        //Output the current Animation name and length to the screen
+        GUI.Label(new Rect(0, 0, 200, 20),  "Clip Name : " + currentClip.name);
+        GUI.Label(new Rect(0, 30, 200, 20),  "Clip Length : " + currentClip.length);
     }
 
     private void setHintPos()
