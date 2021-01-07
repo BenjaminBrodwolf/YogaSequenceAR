@@ -100,10 +100,7 @@ public class SequenceManager : MonoBehaviour
         _uiObjectForBodyPart1 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart1")[0].GetComponent<Text>();  
         
         _hintLine2 = FindInActiveObjectByTag("HintLine2");
-        _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart2")[0].GetComponent<Text>();   
-        
-        _hintLine3 = FindInActiveObjectByTag("HintLine3");
-        _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart3")[0].GetComponent<Text>();
+        _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart2")[0].GetComponent<Text>();
 
         // body parts
          _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
@@ -211,7 +208,6 @@ public class SequenceManager : MonoBehaviour
         {
             Debug.Log("Hint 1 " + _currentBodyHintFocus1);
             Debug.Log("Hint 2 " + _currentBodyHintFocus2);
-            Debug.Log("Hint 3 " + _currentBodyHintFocus3);
             
             _hintPanel.SetActive(true);
 
@@ -223,10 +219,6 @@ public class SequenceManager : MonoBehaviour
             {
                 _hintLine2.SetActive(true);
             }
-            if (_currentBodyHintFocus3 != null)
-            {
-                _hintLine3.SetActive(true);
-            }
             setHintText();
         }
         else
@@ -234,7 +226,6 @@ public class SequenceManager : MonoBehaviour
             _hintPanel.SetActive(false);
             _hintLine1.SetActive(false);
             _hintLine2.SetActive(false);
-            _hintLine3.SetActive(false);
         }
     }
 
@@ -275,13 +266,8 @@ public class SequenceManager : MonoBehaviour
             _currenAdjustText = y.AdjustmentText;
             _currentBodyHintFocus1 = y.BodyHintFocus1;
             _currentBodyHintFocus2 = y.BodyHintFocus2;
-            _currentBodyHintFocus3 = y.BodyHintFocus3;       
-            // _currentBodyHintFocus1 = y.BodyHintFocus1 != null ? y.BodyHintFocus1 : _kopf;
-            // _currentBodyHintFocus2 = y.BodyHintFocus2 != null ? y.BodyHintFocus2 : _kopf;
-            // _currentBodyHintFocus3 = y.BodyHintFocus3 != null ? y.BodyHintFocus3 : _kopf;
             _currenYogaPoseSound = y.YogaPoseSound;
-            // AudioSource.PlayClipAtPoint(y.YogaPoseSound, Camera.main.transform.position);
-            // _audioSource.Play();
+
             PlaySoundPoseName();
         }
         else
@@ -317,10 +303,6 @@ public class SequenceManager : MonoBehaviour
         if (_currentBodyHintFocus2 != null)
         {
             _uiObjectForBodyPart2.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus2.transform.position);
-        }
-        if (_currentBodyHintFocus3 != null)
-        {
-            _uiObjectForBodyPart3.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus3.transform.position);
         }
     }
 
