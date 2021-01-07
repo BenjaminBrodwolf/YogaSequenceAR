@@ -16,9 +16,14 @@ TagManager:
   - TextHint
   - Kopf
   - HandLinks
-  - UiObjectForBodyPart
   - HintLine
   - SayAgainButton
+  - UiObjectForBodyPart1
+  - UiObjectForBodyPart2
+  - UiObjectForBodyPart3
+  - HintLine1
+  - HintLine2
+  - HintLine3
   layers:
   - Default
   - TransparentFX

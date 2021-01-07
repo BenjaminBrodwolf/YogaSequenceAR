@@ -24,9 +24,17 @@ public class SequenceManager : MonoBehaviour
 
     private bool isHintActive;
     private GameObject _hintPanel;
-    private GameObject _hintLine;
-    private Text _uiObjectForBodyPart;
-    private GameObject _currentBodyHintFocus;
+    private GameObject _hintLine1;
+    private GameObject _hintLine2;
+    private GameObject _hintLine3;
+
+    private Text _uiObjectForBodyPart1;
+    private Text _uiObjectForBodyPart2;
+    private Text _uiObjectForBodyPart3;
+    
+    private GameObject _currentBodyHintFocus1;
+    private GameObject _currentBodyHintFocus2;
+    private GameObject _currentBodyHintFocus3;
 
     private string lastAnimationEventName;
 
@@ -46,7 +54,11 @@ public class SequenceManager : MonoBehaviour
         {"Vorbeuge", "Halbe Vorbeuge (Ardha Uttanasana)"},
         {"Brett", "Tiefes Brett (Chaturanga)"},
         {"Liegend", "Liegend"},
-        {"Kobra", "Kobra (Bhujangasana)"}
+        {"Kobra", "Kobra (Bhujangasana)"},
+        {"HerabHund", "Herabschauender Hund (Adho Mukha Svanasana)"},
+        {"BeinHochL", "Dreibeiniger Hund (Down Dog Split)"},
+        {"BeinVorneL", "Low Lunge"},
+        {"Krieger1L", "Krieger 1 (Virabadhrasana I )"}
     };
 
     void Start()
@@ -83,12 +95,19 @@ public class SequenceManager : MonoBehaviour
         isHintActive = false;
         _hintButtonUI = FindInActiveObjectByTag("HintButton");
         _hintPanel = FindInActiveObjectByTag("TextHint");
-        _hintLine = FindInActiveObjectByTag("HintLine");
-        _uiObjectForBodyPart = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart")[0].GetComponent<Text>();
+        
+        _hintLine1 = FindInActiveObjectByTag("HintLine1");
+        _uiObjectForBodyPart1 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart1")[0].GetComponent<Text>();  
+        
+        _hintLine2 = FindInActiveObjectByTag("HintLine2");
+        _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart2")[0].GetComponent<Text>();   
+        
+        _hintLine3 = FindInActiveObjectByTag("HintLine3");
+        _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart3")[0].GetComponent<Text>();
 
         // body parts
-        _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
-        _currentBodyHintFocus = _kopf; // default for debug
+         _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
+        // _currentBodyHintFocus1 = _kopf; // default for debug
     }
 
     void Update()
@@ -124,7 +143,8 @@ public class SequenceManager : MonoBehaviour
                 poseName = poseDictionary[poses[0]].ToString();
             }
 
-            SetCurrentYogaSequenceData();        }
+            SetCurrentYogaSequenceData();
+        }
 
         SetPoseName(poseName);
 
@@ -181,7 +201,6 @@ public class SequenceManager : MonoBehaviour
         isAllowedPlaySoundPoseName = true;
     }
 
- 
 
     public void HintButton()
     {
@@ -190,20 +209,38 @@ public class SequenceManager : MonoBehaviour
 
         if (isHintActive)
         {
+            Debug.Log("Hint 1 " + _currentBodyHintFocus1);
+            Debug.Log("Hint 2 " + _currentBodyHintFocus2);
+            Debug.Log("Hint 3 " + _currentBodyHintFocus3);
+            
             _hintPanel.SetActive(true);
-            _hintLine.SetActive(true);
+
+            if (_currentBodyHintFocus1 != null)
+            {
+                _hintLine1.SetActive(true);
+            }
+            if (_currentBodyHintFocus2 != null)
+            {
+                _hintLine2.SetActive(true);
+            }
+            if (_currentBodyHintFocus3 != null)
+            {
+                _hintLine3.SetActive(true);
+            }
             setHintText();
         }
         else
         {
             _hintPanel.SetActive(false);
-            _hintLine.SetActive(false);
+            _hintLine1.SetActive(false);
+            _hintLine2.SetActive(false);
+            _hintLine3.SetActive(false);
         }
     }
 
     public void YogaPoseEvent(AnimationEvent poseEvent)
     {
-        Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
+        // Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
         lastAnimationEventName = poseEvent.stringParameter;
         setHintText();
     }
@@ -226,16 +263,22 @@ public class SequenceManager : MonoBehaviour
             isAllowedPlaySoundPoseName = false;
         }
     }
+
     public void SetCurrentYogaSequenceData()
     {
         //currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
         var poseNameExist = yogaAdjustments.Any(e => e.YogaPose.Equals(lastAnimationEventName));
-        Debug.Log("Pose vorhanden " + poseNameExist);
+        // Debug.Log("Pose vorhanden " + poseNameExist);
         if (poseNameExist)
         {
             var y = yogaAdjustments.First(e => e.YogaPose.Equals(lastAnimationEventName));
             _currenAdjustText = y.AdjustmentText;
-            _currentBodyHintFocus = y.BodyHintFocus;
+            _currentBodyHintFocus1 = y.BodyHintFocus1;
+            _currentBodyHintFocus2 = y.BodyHintFocus2;
+            _currentBodyHintFocus3 = y.BodyHintFocus3;       
+            // _currentBodyHintFocus1 = y.BodyHintFocus1 != null ? y.BodyHintFocus1 : _kopf;
+            // _currentBodyHintFocus2 = y.BodyHintFocus2 != null ? y.BodyHintFocus2 : _kopf;
+            // _currentBodyHintFocus3 = y.BodyHintFocus3 != null ? y.BodyHintFocus3 : _kopf;
             _currenYogaPoseSound = y.YogaPoseSound;
             // AudioSource.PlayClipAtPoint(y.YogaPoseSound, Camera.main.transform.position);
             // _audioSource.Play();
@@ -243,29 +286,42 @@ public class SequenceManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Pose nicht vorhanden");
+            // Debug.Log("Pose nicht vorhanden");
             _currenAdjustText = "Keine Infos vorhanden";
-            _currentBodyHintFocus = _kopf;
+            // _currentBodyHintFocus1 = _kopf;
         }
     }
+
     private bool AnimatorIsPlaying()
     {
-        return _anim.GetCurrentAnimatorStateInfo(0).length >
+        return _anim.GetCurrentAnimatorStateInfo(0).length - (_anim.GetCurrentAnimatorStateInfo(0).length / 2) >
                _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
+
     void OnGUI()
     {
         //Output the current Animation name and length to the screen
         GUI.Label(new Rect(0, 0, 200, 20), "Event PoseName : " + lastAnimationEventName);
         GUI.Label(new Rect(0, 30, 200, 20), "Sequence Number : " + countSequence);
-        GUI.Label(new Rect(0, 15, 200, 20),  "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        GUI.Label(new Rect(0, 15, 200, 20), "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 
     private void setHintPos()
     {
-        Vector3 worldPos = Camera.main.WorldToScreenPoint(_currentBodyHintFocus.transform.position);
-        _uiObjectForBodyPart.transform.position = worldPos;
-        _uiObjectForBodyPart.text = _kopf.name;
+
+
+        if (_currentBodyHintFocus1 != null)
+        {
+            _uiObjectForBodyPart1.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus1.transform.position);
+        }
+        if (_currentBodyHintFocus2 != null)
+        {
+            _uiObjectForBodyPart2.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus2.transform.position);
+        }
+        if (_currentBodyHintFocus3 != null)
+        {
+            _uiObjectForBodyPart3.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus3.transform.position);
+        }
     }
 
 

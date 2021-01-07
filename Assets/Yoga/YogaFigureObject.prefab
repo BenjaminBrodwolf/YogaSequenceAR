@@ -155,6 +155,36 @@ Transform:
   m_Father: {fileID: 5667369912856235623}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &525834069416500344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2941144235649331806}
+  m_Layer: 0
+  m_Name: ZwischenBeine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2941144235649331806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525834069416500344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17, y: -0.029, z: 1.382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2836295111574462387}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531935491589356535
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,27 +876,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yogaAdjustments:
   - YogaPose: Berg
-    BodyHintFocus: {fileID: 1081806365186235233}
+    BodyHintFocus1: {fileID: 6353102468070196040}
+    BodyHintFocus2: {fileID: 6062768910581904259}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
-    AdjustmentText: Kopf gerade und schulter nach hinten
+    AdjustmentText: "F\xFCsse h\xFCftebreit"
   - YogaPose: KopfKnie
-    BodyHintFocus: {fileID: 7462777454675366643}
+    BodyHintFocus1: {fileID: 525834069416500344}
+    BodyHintFocus2: {fileID: 0}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 8300000, guid: 2e0146233655ad24f8be1c52bbc78c59, type: 3}
     AdjustmentText: Beine leicht angewinkelt
   - YogaPose: Brett
-    BodyHintFocus: {fileID: 7705894835473530896}
+    BodyHintFocus1: {fileID: 0}
+    BodyHintFocus2: {fileID: 0}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
     AdjustmentText: "Elbogen \xFCber der H\xE4nde"
   - YogaPose: Vorbeuge
-    BodyHintFocus: {fileID: 2028379114252647160}
+    BodyHintFocus1: {fileID: 0}
+    BodyHintFocus2: {fileID: 0}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 8300000, guid: 2e0146233655ad24f8be1c52bbc78c59, type: 3}
     AdjustmentText: "R\xFCcken gerade"
   - YogaPose: Liegend
-    BodyHintFocus: {fileID: 8029269409123342696}
+    BodyHintFocus1: {fileID: 0}
+    BodyHintFocus2: {fileID: 0}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 0}
     AdjustmentText: "F\xFCsse flach auf dem Boden  (kein Audio)"
   - YogaPose: Kobra
-    BodyHintFocus: {fileID: 5428428918367607532}
+    BodyHintFocus1: {fileID: 0}
+    BodyHintFocus2: {fileID: 0}
+    BodyHintFocus3: {fileID: 0}
     YogaPoseSound: {fileID: 8300000, guid: 263379bf2cd0e7d4c8a28d45d7a7b736, type: 3}
     AdjustmentText: Schultern  nach hinten
 --- !u!95 &1869388936570034007
@@ -1667,6 +1709,36 @@ Transform:
   m_Father: {fileID: 639985918101240669}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4455981605042536018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922624835616879571}
+  m_Layer: 0
+  m_Name: ZwischenFuesse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1922624835616879571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455981605042536018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17, y: -0.32, z: 0.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2836295111574462387}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4635138158767014339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2328,8 @@ Transform:
   - {fileID: 1010385328803276142}
   - {fileID: 4592571917782979042}
   - {fileID: 2144193076506259048}
+  - {fileID: 1922624835616879571}
+  - {fileID: 2941144235649331806}
   m_Father: {fileID: 9157510075996968383}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

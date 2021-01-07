@@ -12,7 +12,6 @@ public class LineBetweenObjects : MonoBehaviour
     private RectTransform object2;
     private Image image;
     private RectTransform rectTransform;
-    // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<Image>();
