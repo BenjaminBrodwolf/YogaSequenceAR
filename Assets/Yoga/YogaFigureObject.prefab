@@ -178,12 +178,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525834069416500344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: -0.029, z: 1.382}
+  m_LocalRotation: {x: -0.7352851, y: 0.000000080948475, z: 0.00000008751113, w: 0.6777579}
+  m_LocalPosition: {x: 0.17000002, y: -1.4728527, z: 0.018850088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2836295111574462387}
-  m_RootOrder: 4
+  m_Father: {fileID: 1010385328803276142}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531935491589356535
 GameObject:
@@ -669,7 +669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028379114252647160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46, y: -0.67, z: 0.44}
+  m_LocalPosition: {x: -0.46, y: 0.25, z: -1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8945281509870761891}
@@ -817,6 +817,8 @@ Transform:
   m_LocalPosition: {x: 3.2919145e-10, y: -0.12993811, z: 2.8515105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3894861118609024857}
+  - {fileID: 2941144235649331806}
   - {fileID: 1064679923247393436}
   - {fileID: 5200570830624934938}
   - {fileID: 8945281509870761891}
@@ -881,49 +883,49 @@ MonoBehaviour:
     YogaPoseSound: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
     AdjustmentText: "F\xFCsse H\xFCfte-Breit & Brustbein leicht nach Oben "
   - YogaPose: KopfKnie
-    BodyHintFocus1: {fileID: 525834069416500344}
+    BodyHintFocus1: {fileID: 7462777454675366643}
     BodyHintFocus2: {fileID: 7705894835473530896}
-    YogaPoseSound: {fileID: 8300000, guid: 2e0146233655ad24f8be1c52bbc78c59, type: 3}
+    YogaPoseSound: {fileID: 8300000, guid: 041f697258c912542b90386e4c5e880b, type: 3}
     AdjustmentText: "Beine beugen bis die Fingerspitzen den Boden ber\xFChren"
   - YogaPose: Vorbeuge
-    BodyHintFocus1: {fileID: 3492534374630216462}
+    BodyHintFocus1: {fileID: 2028379114252647160}
     BodyHintFocus2: {fileID: 3289544367700267485}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
+    YogaPoseSound: {fileID: 8300000, guid: 763a6fec056b66f4d80e2fcf142fa3b5, type: 3}
     AdjustmentText: "Brustbein anheben & langer geraden R\xFCcken"
   - YogaPose: Brett
     BodyHintFocus1: {fileID: 5428428918367607532}
     BodyHintFocus2: {fileID: 7705894835473530896}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
-    AdjustmentText: Schultern nicht vor der Handgelenke
+    YogaPoseSound: {fileID: 8300000, guid: 8e66011bc1289954d8efaf2819b568c6, type: 3}
+    AdjustmentText: Schultern nicht vor die Handgelenke
   - YogaPose: Liegend
     BodyHintFocus1: {fileID: 8461411138868648372}
     BodyHintFocus2: {fileID: 7705894835473530896}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
-    AdjustmentText: Langsam und kontrolliert absengen auf den Boden
+    YogaPoseSound: {fileID: 0}
+    AdjustmentText: Langsam und kontrolliert auf den Boden absengen
   - YogaPose: Kobra
     BodyHintFocus1: {fileID: 5428428918367607532}
     BodyHintFocus2: {fileID: 8461411138868648372}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
-    AdjustmentText: "Schultern weg von den Ohren & F\xFCsse nach hinten zeigen"
+    YogaPoseSound: {fileID: 0}
+    AdjustmentText: "Schultern weg von den Ohren & F\xFCsse nach hinten pointen"
   - YogaPose: HerabHund
     BodyHintFocus1: {fileID: 5428428918367607532}
     BodyHintFocus2: {fileID: 6903043822660803572}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
-    AdjustmentText: "Sitzbeinh\xF6ckern nach hinten und oben & Schultern entspannen"
+    YogaPoseSound: {fileID: 8300000, guid: 763a6fec056b66f4d80e2fcf142fa3b5, type: 3}
+    AdjustmentText: "Sitzbeinh\xF6ckern nach hinten und oben & Schultern entspannt"
   - YogaPose: BeinHochL
     BodyHintFocus1: {fileID: 8461411138868648372}
     BodyHintFocus2: {fileID: 7705894835473530896}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
+    YogaPoseSound: {fileID: 0}
     AdjustmentText: "Langes Bein in eine gerade Linie bis zu den H\xE4nden"
   - YogaPose: BeinVorneL
     BodyHintFocus1: {fileID: 7462777454675366643}
     BodyHintFocus2: {fileID: 4204472558554052610}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
+    YogaPoseSound: {fileID: 0}
     AdjustmentText: "Hinteres Bein aktiv & Kniehe nicht vor das F\xFCssgelenk"
   - YogaPose: Krieger1L
     BodyHintFocus1: {fileID: 4455981605042536018}
     BodyHintFocus2: {fileID: 5428428918367607532}
-    YogaPoseSound: {fileID: 8300000, guid: 482dc47c821ece54c9ae7a13cc3297c2, type: 3}
+    YogaPoseSound: {fileID: 8300000, guid: d929f92192642dd439bfba8e3b81b015, type: 3}
     AdjustmentText: "F\xFCsse H\xFCfte-Breit & ansatz des Nackens entspannt"
 --- !u!95 &1869388936570034007
 Animator:
@@ -1324,12 +1326,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3289544367700267485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.83, z: 4.3}
+  m_LocalRotation: {x: -0.7352851, y: 0.000000080948475, z: 0.00000008751113, w: 0.6777579}
+  m_LocalPosition: {x: 0, y: 1.500602, z: 0.57999974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2836295111574462387}
-  m_RootOrder: 5
+  m_Father: {fileID: 1010385328803276142}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3354561218407756184
 GameObject:
@@ -1363,36 +1365,6 @@ Transform:
   - {fileID: 5709449067716226745}
   m_Father: {fileID: 110217736331001166}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3492534374630216462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1699183657661312531}
-  m_Layer: 0
-  m_Name: "R\xFCcken"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1699183657661312531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3492534374630216462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.24, z: 3.78}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2836295111574462387}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3510623752447690236
 GameObject:
@@ -2403,9 +2375,6 @@ Transform:
   - {fileID: 4592571917782979042}
   - {fileID: 2144193076506259048}
   - {fileID: 1922624835616879571}
-  - {fileID: 2941144235649331806}
-  - {fileID: 3894861118609024857}
-  - {fileID: 1699183657661312531}
   m_Father: {fileID: 9157510075996968383}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2501,7 +2470,7 @@ Transform:
   - {fileID: 6067740887895416186}
   - {fileID: 9143881238342409842}
   m_Father: {fileID: 1010385328803276142}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6353102468070196040
 GameObject:
@@ -2819,7 +2788,7 @@ Transform:
   m_Children:
   - {fileID: 2207308430018328576}
   m_Father: {fileID: 1010385328803276142}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6914855632716287963
 GameObject:
@@ -3066,7 +3035,7 @@ Transform:
   m_Children:
   - {fileID: 6422030855858295036}
   m_Father: {fileID: 1010385328803276142}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7591794994938288241
 GameObject:

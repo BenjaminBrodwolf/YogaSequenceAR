@@ -240,7 +240,7 @@ public class SequenceManager : MonoBehaviour
     {
         if (_hintPanel.active)
         {
-            // SetCurrentYogaSequenceData();
+            SetCurrentYogaSequenceData();
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
             textElement.text = _currenAdjustText;
         }
