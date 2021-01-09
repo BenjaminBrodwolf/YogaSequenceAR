@@ -8,26 +8,59 @@ public class HintButton : MonoBehaviour
     public Sprite iconActive;
     public Sprite iconInactive;
     public Button button;
-
-    private bool isActive;
+    public Button hintContainer;
+    public RectTransform hintBackground;
+    public Text hintText;
     
+
+    private bool _isActive;
+    private bool _isBig;
+
     // Start is called before the first frame update
     void Start()
     {
         button.onClick.AddListener(OnClick);
-        isActive = false;
+        hintContainer.onClick.AddListener(Zoom);
+        _isActive = false;
+        _isBig = false;
     }
 
     void OnClick(){
-        if (isActive)
+        if (_isActive)
         {
-            isActive = false;
+            _isActive = false;
             button.image.sprite = iconInactive;
         }
         else
         {
             button.image.sprite = iconActive;
-            isActive = true;
+            _isActive = true;
+        }
+    }
+
+    void Zoom()
+    {
+        var layoutElement = hintBackground.GetComponent<LayoutElement>();
+        var rectTransform = hintContainer.GetComponent<RectTransform>();
+        if (_isBig)
+        {
+            _isBig = false;
+            layoutElement.minWidth = 120;
+            layoutElement.minHeight = 50;
+            hintText.fontSize = 26;
+            rectTransform.anchorMin = new Vector2(0, (float) 0.5);
+            rectTransform.anchorMax = new Vector2(0, (float) 0.5);
+            rectTransform.anchoredPosition = new Vector2(200, 50);
+        }
+        else
+        {
+            _isBig = true;
+            layoutElement.minWidth = 900;
+            layoutElement.minHeight = 500;
+            hintText.fontSize = 90;
+            rectTransform.anchorMin = new Vector2((float) 0.5, (float) 0.5);
+            rectTransform.anchorMax = new Vector2((float) 0.5, (float) 0.5);
+            rectTransform.anchoredPosition = new Vector2(0, 0);
         }
     }
 }
