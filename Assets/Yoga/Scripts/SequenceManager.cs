@@ -133,6 +133,7 @@ public class SequenceManager : MonoBehaviour
             }
 
             SetCurrentYogaSequenceData();
+            PlaySoundPoseName();
         }
 
         SetPoseName(poseName);
@@ -224,6 +225,7 @@ public class SequenceManager : MonoBehaviour
     public void YogaPoseEvent(AnimationEvent poseEvent)
     {
         lastAnimationEventName = poseEvent.stringParameter;
+        SetCurrentYogaSequenceData();
         setHintText();
     }
 
@@ -256,8 +258,6 @@ public class SequenceManager : MonoBehaviour
             _currentBodyHintFocus1 = y.BodyHintFocus1;
             _currentBodyHintFocus2 = y.BodyHintFocus2;
             _currenYogaPoseSound = y.YogaPoseSound;
-
-            PlaySoundPoseName();
         }
         else
         {

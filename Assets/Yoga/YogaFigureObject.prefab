@@ -881,7 +881,7 @@ MonoBehaviour:
     BodyHintFocus1: {fileID: 4455981605042536018}
     BodyHintFocus2: {fileID: 3289544367700267485}
     YogaPoseSound: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
-    AdjustmentText: "F\xFCsse h\xFCftebreit & Brustbein leicht nach Oben "
+    AdjustmentText: "F\xFCsse h\xFCftbreit & Brustbein leicht nach oben "
   - YogaPose: KopfKnie
     BodyHintFocus1: {fileID: 7462777454675366643}
     BodyHintFocus2: {fileID: 7705894835473530896}
@@ -926,7 +926,7 @@ MonoBehaviour:
     BodyHintFocus1: {fileID: 4455981605042536018}
     BodyHintFocus2: {fileID: 5428428918367607532}
     YogaPoseSound: {fileID: 8300000, guid: d929f92192642dd439bfba8e3b81b015, type: 3}
-    AdjustmentText: "F\xFCsse h\xFCftebreit & ansatz des Nackens entspannt"
+    AdjustmentText: "F\xFCsse h\xFCftbreit & ansatz des Nackens entspannen"
 --- !u!95 &1869388936570034007
 Animator:
   serializedVersion: 3
