@@ -17,7 +17,6 @@ public class SequenceManager : MonoBehaviour
     private GameObject _sayAgainButtonUI;
     private bool isAllowedPlaySoundPoseName;
 
-    private GameObject _kopf;
     private GameObject _handRecht;
     private GameObject _handLinks;
     private GameObject _schulterRechts;
@@ -101,17 +100,10 @@ public class SequenceManager : MonoBehaviour
         
         _hintLine2 = FindInActiveObjectByTag("HintLine2");
         _uiObjectForBodyPart2 = GameObject.FindGameObjectsWithTag("UiObjectForBodyPart2")[0].GetComponent<Text>();
-
-        // body parts
-         _kopf = GameObject.FindGameObjectsWithTag("Kopf")[0];
-        // _currentBodyHintFocus1 = _kopf; // default for debug
     }
 
     void Update()
     {
-        // Debug.Log(GetCurrentClipName());
-        // Debug.Log(AnimatorIsPlaying());
-
         string currentClipName = GetCurrentClipName();
         string[] poses = currentClipName.Split('-');
         if (AnimatorIsPlaying())
@@ -206,9 +198,9 @@ public class SequenceManager : MonoBehaviour
 
         if (isHintActive)
         {
-            Debug.Log("Hint 1 " + _currentBodyHintFocus1);
-            Debug.Log("Hint 2 " + _currentBodyHintFocus2);
-            
+            // Debug.Log("Hint 1 " + _currentBodyHintFocus1);
+            // Debug.Log("Hint 2 " + _currentBodyHintFocus2);
+            //
             _hintPanel.SetActive(true);
 
             if (_currentBodyHintFocus1 != null)
@@ -231,7 +223,6 @@ public class SequenceManager : MonoBehaviour
 
     public void YogaPoseEvent(AnimationEvent poseEvent)
     {
-        // Debug.Log("AnimationEvent neue Pose: " + poseEvent.stringParameter);
         lastAnimationEventName = poseEvent.stringParameter;
         setHintText();
     }
@@ -240,7 +231,6 @@ public class SequenceManager : MonoBehaviour
     {
         if (_hintPanel.active)
         {
-            SetCurrentYogaSequenceData();
             Text textElement = _hintPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
             textElement.text = _currenAdjustText;
         }
@@ -250,6 +240,7 @@ public class SequenceManager : MonoBehaviour
     {
         if (isAllowedPlaySoundPoseName && !_audioSource.isPlaying)
         {
+            Debug.Log("Play sound");
             _audioSource.PlayOneShot(_currenYogaPoseSound);
             isAllowedPlaySoundPoseName = false;
         }
@@ -257,9 +248,7 @@ public class SequenceManager : MonoBehaviour
 
     public void SetCurrentYogaSequenceData()
     {
-        //currentClip = _anim.GetCurrentAnimatorClipInfo(0)[0].clip;
         var poseNameExist = yogaAdjustments.Any(e => e.YogaPose.Equals(lastAnimationEventName));
-        // Debug.Log("Pose vorhanden " + poseNameExist);
         if (poseNameExist)
         {
             var y = yogaAdjustments.First(e => e.YogaPose.Equals(lastAnimationEventName));
@@ -272,21 +261,17 @@ public class SequenceManager : MonoBehaviour
         }
         else
         {
-            // Debug.Log("Pose nicht vorhanden");
+            Debug.Log("Pose nicht vorhanden");
             _currenAdjustText = "Keine Infos vorhanden";
-            // _currentBodyHintFocus1 = _kopf;
         }
     }
 
-    private bool AnimatorIsPlaying()
-    {
-        return _anim.GetCurrentAnimatorStateInfo(0).length - (_anim.GetCurrentAnimatorStateInfo(0).length / 2) >
-               _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-    }
+    private bool AnimatorIsPlaying() => 
+        (_anim.GetCurrentAnimatorStateInfo(0).length - (_anim.GetCurrentAnimatorStateInfo(0).length / 2)) > _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    
 
     void OnGUI()
     {
-        //Output the current Animation name and length to the screen
         GUI.Label(new Rect(0, 0, 200, 20), "Event PoseName : " + lastAnimationEventName);
         GUI.Label(new Rect(0, 30, 200, 20), "Sequence Number : " + countSequence);
         GUI.Label(new Rect(0, 15, 200, 20), "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
@@ -294,8 +279,6 @@ public class SequenceManager : MonoBehaviour
 
     private void setHintPos()
     {
-
-
         if (_currentBodyHintFocus1 != null)
         {
             _uiObjectForBodyPart1.transform.position =  Camera.main.WorldToScreenPoint(_currentBodyHintFocus1.transform.position);
@@ -326,7 +309,6 @@ public class SequenceManager : MonoBehaviour
                 }
             }
         }
-
         return null;
     }
 }

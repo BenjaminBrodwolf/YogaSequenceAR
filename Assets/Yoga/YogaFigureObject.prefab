@@ -905,7 +905,7 @@ MonoBehaviour:
   - YogaPose: Kobra
     BodyHintFocus1: {fileID: 5428428918367607532}
     BodyHintFocus2: {fileID: 8461411138868648372}
-    YogaPoseSound: {fileID: 0}
+    YogaPoseSound: {fileID: 8300000, guid: 263379bf2cd0e7d4c8a28d45d7a7b736, type: 3}
     AdjustmentText: "Schultern weg von den Ohren & F\xFCsse nach hinten pointen"
   - YogaPose: HerabHund
     BodyHintFocus1: {fileID: 5428428918367607532}
