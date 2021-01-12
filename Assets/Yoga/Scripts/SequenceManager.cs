@@ -270,12 +270,12 @@ public class SequenceManager : MonoBehaviour
         (_anim.GetCurrentAnimatorStateInfo(0).length - (_anim.GetCurrentAnimatorStateInfo(0).length / 2)) > _anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
     
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(0, 0, 200, 20), "Event PoseName : " + lastAnimationEventName);
-        GUI.Label(new Rect(0, 30, 200, 20), "Sequence Number : " + countSequence);
-        GUI.Label(new Rect(0, 15, 200, 20), "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-    }
+    // void OnGUI()
+    // {
+    //     GUI.Label(new Rect(0, 0, 200, 20), "Event PoseName : " + lastAnimationEventName);
+    //     GUI.Label(new Rect(0, 30, 200, 20), "Sequence Number : " + countSequence);
+    //     GUI.Label(new Rect(0, 15, 200, 20), "Animation Time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    // }
 
     private void setHintPos()
     {
