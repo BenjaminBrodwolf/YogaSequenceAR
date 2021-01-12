@@ -40,6 +40,7 @@ public class HintButton : MonoBehaviour
 
     void Zoom()
     {
+        Debug.Log("Hint Button Script");
         var layoutElement = hintBackground.GetComponent<LayoutElement>();
         var rectTransform = hintContainer.GetComponent<RectTransform>();
         if (_isBig)
@@ -47,7 +48,7 @@ public class HintButton : MonoBehaviour
             _isBig = false;
             layoutElement.minWidth = 120;
             layoutElement.minHeight = 50;
-            hintText.fontSize = 26;
+            hintText.fontSize = 24;
             rectTransform.anchorMin = new Vector2(0, (float) 0.5);
             rectTransform.anchorMax = new Vector2(0, (float) 0.5);
             rectTransform.anchoredPosition = new Vector2(200, 50);
