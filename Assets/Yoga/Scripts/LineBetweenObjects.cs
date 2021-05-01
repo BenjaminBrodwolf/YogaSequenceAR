@@ -39,7 +39,7 @@ public class LineBetweenObjects : MonoBehaviour
         {
             rectTransform.localPosition = (object1.localPosition + object2.localPosition) / 2;
             Vector3 dif = object2.localPosition - object1.localPosition;
-            rectTransform.sizeDelta = new Vector3(dif.magnitude, 5);
+            rectTransform.sizeDelta = new Vector3(dif.magnitude, 10);
             rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, 180 * Mathf.Atan(dif.y / dif.x) / Mathf.PI));
         }
     }

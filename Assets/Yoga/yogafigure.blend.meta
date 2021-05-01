@@ -53,6 +53,12 @@ ModelImporter:
   - first:
       74: -7702233449907607591
     second: BeineVorneL-Krieger1L
+  - first:
+      74: -3440396382530582172
+    second: Krieger1L-BeineVorneL
+  - first:
+      74: -4154575328971796491
+    second: BeineVorneL-Berg
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -76,6 +82,9 @@ ModelImporter:
     animationImportWarnings: Event YogaPoseEvent has a time (2.083333) outside the
       clip's valid range (0.000000..2.083333). It will never be firedEvent YogaPoseEvent
       has a time (3.182812) outside the clip's valid range (0.000000..3.125000).
+      It will never be firedEvent YogaPoseEvent has a time (2.299305) outside the
+      clip's valid range (0.000000..2.291668). It will never be firedEvent YogaPoseEvent
+      has a time (4.040798) outside the clip's valid range (0.000000..3.958334).
       It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -378,12 +387,12 @@ ModelImporter:
       name: Berg
       takeName: Scene
       internalID: 0
-      firstFrame: 1
-      lastFrame: 10
+      firstFrame: 722
+      lastFrame: 800
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 1.5
+      cycleOffset: 0.73
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
@@ -399,7 +408,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
+      - time: 0.028571429
         functionName: YogaPoseEvent
         data: Berg
         objectReferenceParameter: {instanceID: 0}
@@ -778,6 +787,120 @@ ModelImporter:
       - time: 0.9887499
         functionName: YogaPoseEvent
         data: Krieger1L
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Krieger1L-BeineVorneL
+      takeName: Scene
+      internalID: 0
+      firstFrame: 570
+      lastFrame: 625
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.02333333
+        functionName: YogaPoseEvent
+        data: Krieger1L
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46861106
+        functionName: YogaPoseEvent
+        data: Krieger1L
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.51527774
+        functionName: YogaPoseEvent
+        data: BeineVorneL
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1.0033332
+        functionName: YogaPoseEvent
+        data: BeineVorneL
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: BeineVorneL-Berg
+      takeName: Scene
+      internalID: 0
+      firstFrame: 625
+      lastFrame: 720
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.02079364
+        functionName: YogaPoseEvent
+        data: BeineVorneL
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.44138885
+        functionName: YogaPoseEvent
+        data: BeineVorneL
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5047222
+        functionName: YogaPoseEvent
+        data: Berg
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1.0208333
+        functionName: YogaPoseEvent
+        data: Berg
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

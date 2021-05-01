@@ -855,7 +855,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2315951820464798061}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
@@ -863,7 +863,7 @@ Transform:
   - {fileID: 4558670806908675490}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &442449325361059550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +881,7 @@ MonoBehaviour:
     BodyHintFocus1: {fileID: 4455981605042536018}
     BodyHintFocus2: {fileID: 3289544367700267485}
     YogaPoseSound: {fileID: 8300000, guid: 7d34410982f838b4c84678fea97ac0a2, type: 3}
-    AdjustmentText: "F\xFCsse H\xFCfte-Breit & Brustbein leicht nach Oben "
+    AdjustmentText: "F\xFCsse h\xFCftbreit & Brustbein leicht nach oben "
   - YogaPose: KopfKnie
     BodyHintFocus1: {fileID: 7462777454675366643}
     BodyHintFocus2: {fileID: 7705894835473530896}
@@ -905,7 +905,7 @@ MonoBehaviour:
   - YogaPose: Kobra
     BodyHintFocus1: {fileID: 5428428918367607532}
     BodyHintFocus2: {fileID: 8461411138868648372}
-    YogaPoseSound: {fileID: 0}
+    YogaPoseSound: {fileID: 8300000, guid: 263379bf2cd0e7d4c8a28d45d7a7b736, type: 3}
     AdjustmentText: "Schultern weg von den Ohren & F\xFCsse nach hinten pointen"
   - YogaPose: HerabHund
     BodyHintFocus1: {fileID: 5428428918367607532}
@@ -926,7 +926,7 @@ MonoBehaviour:
     BodyHintFocus1: {fileID: 4455981605042536018}
     BodyHintFocus2: {fileID: 5428428918367607532}
     YogaPoseSound: {fileID: 8300000, guid: d929f92192642dd439bfba8e3b81b015, type: 3}
-    AdjustmentText: "F\xFCsse H\xFCfte-Breit & ansatz des Nackens entspannt"
+    AdjustmentText: "F\xFCsse h\xFCftbreit & ansatz des Nackens entspannen"
 --- !u!95 &1869388936570034007
 Animator:
   serializedVersion: 3
@@ -965,7 +965,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 12c4473ceefd8344e8361b64ae50ff2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2121,13 +2121,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5772443351440138782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.08, z: 0}
   m_LocalScale: {x: 2.97, y: 0.12, z: 7.98}
   m_Children: []
   m_Father: {fileID: 698070660280397529}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2566058135759260024
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2155,7 +2155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 12c4473ceefd8344e8361b64ae50ff2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2704,7 +2704,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6820757351810665414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2717,7 +2717,7 @@ Transform:
   - {fileID: 2836295111574462387}
   m_Father: {fileID: 698070660280397529}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &9127003228723951511
 MeshRenderer:
   m_ObjectHideFlags: 0
